@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Emprunts</title>
+</head>
+<body>
+<h1>Emprunts</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Date Emprunt</th>
+        <th>Date Retour Prevu</th>
+        <th>Utilisateur</th>
+        <th>Livre</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="emprunt : ${emprunts}">
+        <td th:text="${emprunt.id}"></td>
+        <td th:text="${emprunt.dateEmprunt}"></td>
+        <td th:text="${emprunt.dateRetourPrevu}"></td>
+        <td th:text="${emprunt.utilisateur.nom}"></td>
+        <td th:text="${emprunt.livre.titre}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/addEmprunt}">Add Emprunt</a>
+</body>
+</html>

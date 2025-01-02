@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Add Emprunt</title>
+</head>
+<body>
+<h1>Add Emprunt</h1>
+<form th:action="@{/addEmprunt}" th:object="${emprunt}" method="post">
+  <label for="dateEmprunt">Date Emprunt:</label>
+  <input type="date" id="dateEmprunt" th:field="*{dateEmprunt}" required><br>
+
+  <label for="dateRetourPrevu">Date Retour Prevu:</label>
+  <input type="date" id="dateRetourPrevu" th:field="*{dateRetourPrevu}" required><br>
+
+  <label for="utilisateur">Utilisateur:</label>
+  <select id="utilisateur" th:field="*{utilisateur.id}">
+    <option th:each="utilisateur : ${utilisateurs}" th:value="${utilisateur.id}" th:text="${utilisateur.nom}"></option>
+  </select><br>
+
+  <label for="livre">Livre:</label>
+  <select id="livre" th:field="*{livre.id}">
+    <option th:each="livre : ${livres}" th:value="${livre.id}" th:text="${livre.titre}"></option>
+  </select><br>
+
+  <button type="submit">Add Emprunt</button>
+</form>
+</body>
+</html>
